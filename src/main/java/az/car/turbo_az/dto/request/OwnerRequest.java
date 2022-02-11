@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class OwnerRequest {
@@ -14,6 +15,6 @@ public class OwnerRequest {
     private String fin;
     private LocalDate birthdate;
     private AddressRequest address;
-    private PhoneRequest phone;
-    private CarRequest car;
+    private List<PhoneRequest> phones;
+    private List<CarRequest> cars;
 }
