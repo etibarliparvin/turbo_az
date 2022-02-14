@@ -15,11 +15,10 @@ public class Image {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "type")
-    private String type;
-    @Lob
-    @Column(name = "data")
-    private byte[] data;
+    @Column(name = "extension")
+    private String extension;
+    @Column(name = "full_path")
+    private String fullPath;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "modified_at")

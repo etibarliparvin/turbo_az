@@ -30,7 +30,8 @@ public class CarMapper {
         response.setEngine(car.getEngine());
         response.setKm(car.getKm());
         response.setColor(car.getColor());
-        response.setAddedToSystem(car.getCreated_at());
+        response.setCreatedAt(car.getCreated_at());
+        response.setModifiedAt(car.getModifiedAt());
         return response;
     }
 }

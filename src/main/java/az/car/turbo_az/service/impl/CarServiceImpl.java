@@ -3,6 +3,7 @@ package az.car.turbo_az.service.impl;
 import az.car.turbo_az.dto.request.CarRequest;
 import az.car.turbo_az.dto.response.CarResponse;
 import az.car.turbo_az.entity.Car;
+import az.car.turbo_az.exception.CommonResponse;
 import az.car.turbo_az.mapper.CarMapper;
 import az.car.turbo_az.repository.CarRepository;
 import az.car.turbo_az.service.CarService;
@@ -21,33 +22,22 @@ public class CarServiceImpl implements CarService {
     private final CarMapper carMapper;
 
     @Override
-    public CarResponse create(CarRequest request) {
-        return carMapper.toResponse(carRepository.save(carMapper.toEntity(request)));
+    public CommonResponse create(CarRequest request) {
+        return null;
     }
 
     @Override
-    public CarResponse findById(Long id) {
-        Optional<Car> found = carRepository.findById(id);
-        if (found.isPresent()) {
-            return carMapper.toResponse(found.get());
-        }
-        throw new RuntimeException("Car by id not found");
+    public CommonResponse findById(Long id) {
+        return null;
     }
 
     @Override
-    public List<CarResponse> findAll() {
-        return carRepository.findAll().stream().map(carMapper::toResponse).collect(Collectors.toList());
+    public CommonResponse findAll() {
+        return null;
     }
 
     @Override
-    public CarResponse update(Long id, CarRequest request) {
-        Optional<Car> found = carRepository.findById(id);
-        if (found.isPresent()) {
-            Car car = carMapper.toEntity(request);
-            car.setId(id);
-            car.setCreated_at(found.get().getCreated_at());
-            return carMapper.toResponse(carRepository.save(car));
-        }
-        throw new RuntimeException("Car by id not found");
+    public CommonResponse update(Long id, CarRequest request) {
+        return null;
     }
 }

@@ -20,5 +20,4 @@ public class CarResponse {
     private Boolean isSold;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-    private List<ImageResponse> images;
 }

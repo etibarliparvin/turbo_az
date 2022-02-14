@@ -8,7 +8,7 @@ public interface CrudService<T, R> {
 
     R findById(Long id);
 
-    List<R> findAll();
+    R findAll();
 
     R update(Long id, T t);
 }
