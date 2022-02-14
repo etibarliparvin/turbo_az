@@ -32,7 +32,7 @@ public class CarController {
         return ResponseEntity.ok(carService.findAll());
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<CommonResponse> update(@PathVariable Long id, @RequestBody CarRequest request) {
         return ResponseEntity.ok(carService.update(id, request));
     }
