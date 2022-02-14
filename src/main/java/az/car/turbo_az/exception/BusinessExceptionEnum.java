@@ -26,7 +26,9 @@ public enum BusinessExceptionEnum {
     IMAGE_CAN_NOT_BE_UPLOADED("Image can not be uploaded to the system",
             "404", "Something went wrong, image can not be uploaded to the system"),
     IMAGE_BY_ID_NOT_FOUND("Image by id: %s not found",
-            "404", "The current image not found in our databasse");
+            "404", "The current image not found in our databasse"),
+    OWNER_FIN_ALREADY_EXIST("Owner by fin: %s is already exists in system",
+            "404", "The currest fin is already exists in our system");
 
     private String msg;
     private String code;

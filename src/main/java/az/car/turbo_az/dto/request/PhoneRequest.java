@@ -5,6 +5,5 @@ import lombok.Data;
 @Data
 public class PhoneRequest {
 
-    private Long id;
     private String phoneNumber;
 }
