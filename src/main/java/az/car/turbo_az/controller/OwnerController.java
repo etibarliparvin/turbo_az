@@ -19,7 +19,6 @@ public class OwnerController {
 
     @PostMapping
     public ResponseEntity<CommonResponse> create(@RequestBody OwnerRequest request) {
-        System.out.println("Geldi");
         return ResponseEntity.ok(ownerService.create(request));
     }
 }
