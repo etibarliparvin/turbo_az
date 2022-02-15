@@ -4,10 +4,16 @@ import az.car.turbo_az.dto.request.CarRequest;
 import az.car.turbo_az.dto.response.CarResponse;
 import az.car.turbo_az.entity.Car;
 import az.car.turbo_az.entity.Owner;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 @Component
+@RequiredArgsConstructor
 public class CarMapper {
+
+    private final ImageMapper imageMapper;
 
     public Car toEntity(CarRequest request) {
         Car car = new Car();
@@ -46,6 +52,7 @@ public class CarMapper {
         response.setColor(car.getColor());
         response.setCreatedAt(car.getCreated_at());
         response.setModifiedAt(car.getModifiedAt());
+//        response.setImages(car.getImages().stream().map(imageMapper::toResponse).collect(Collectors.toList()));
         return response;
     }
 }
