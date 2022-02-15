@@ -10,5 +10,5 @@ public interface ImageService {
 
     CommonResponse uploadImages(MultipartFile[] files) throws Exception;
 
-    InputStreamResource downloadImage(Long id) throws Exception;
+//    InputStreamResource downloadImage(Long id) throws Exception;
 }

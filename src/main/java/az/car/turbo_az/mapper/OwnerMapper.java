@@ -25,6 +25,8 @@ public class OwnerMapper {
         owner.setAddress(addressMapper.toEntity(request.getAddress(), owner));
         owner.setPhones(request.getPhones().stream().map(phoneMapper::toEntity).collect(Collectors.toList()));
         owner.setCars(request.getCars().stream().map(carMapper::toEntity).collect(Collectors.toList()));
+//        owner.setPhones(request.getPhones().stream().map(a -> phoneMapper.toEntity(a, owner)).collect(Collectors.toList()));
+//        owner.setCars(request.getCars().stream().map(a -> carMapper.toEntity(a, owner)).collect(Collectors.toList()));
         return owner;
     }
 

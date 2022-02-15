@@ -3,6 +3,7 @@ package az.car.turbo_az.mapper;
 import az.car.turbo_az.dto.request.CarRequest;
 import az.car.turbo_az.dto.response.CarResponse;
 import az.car.turbo_az.entity.Car;
+import az.car.turbo_az.entity.Owner;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +18,19 @@ public class CarMapper {
         car.setEngine(request.getEngine());
         car.setKm(request.getKm());
         car.setColor(request.getColor());
+        return car;
+    }
+
+    public Car toEntity(CarRequest request, Owner owner) {
+        Car car = new Car();
+        car.setMark(request.getMark());
+        car.setModel(request.getModel());
+        car.setYear(request.getYear());
+        car.setCost(request.getCost());
+        car.setEngine(request.getEngine());
+        car.setKm(request.getKm());
+        car.setColor(request.getColor());
+        car.setOwner(owner);
         return car;
     }
 

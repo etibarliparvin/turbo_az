@@ -14,6 +14,7 @@ import az.car.turbo_az.utils.FinUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,6 +27,7 @@ public class OwnerServiceImpl implements OwnerService {
     private final OwnerMapper ownerMapper;
 
     @Override
+    @Transactional
     public CommonResponse create(OwnerRequest request) {
         CommonResponse response = new CommonResponse();
         if (FinUtil.checkAllFins(request.getFin(),

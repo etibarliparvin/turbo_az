@@ -32,7 +32,7 @@ public class ImageServiceImpl implements ImageService {
     public CommonResponse uploadImage(MultipartFile file) throws Exception {
         CommonResponse response = new CommonResponse();
         try {
-            response.setItem(upload(file));
+            response.setItem(imageRepository.save(upload(file)));
             return response;
         } catch (Exception e) {
             throw new NotFoundException(BusinessExceptionEnum.IMAGE_CAN_NOT_BE_UPLOADED);
@@ -45,7 +45,7 @@ public class ImageServiceImpl implements ImageService {
         List<Image> images = new ArrayList<>();
         try {
             for (MultipartFile file : files) {
-                images.add(upload(file));
+                images.add(imageRepository.save(upload(file)));
             }
             response.setItem(images);
             return response;
@@ -54,16 +54,16 @@ public class ImageServiceImpl implements ImageService {
         }
     }
 
-    @Override
-    public InputStreamResource downloadImage(Long id) throws Exception {
-        Optional<Image> found = imageRepository.findById(id);
-        if (found.isPresent()) {
-            Image image = found.get();
-            File file = new File(image.getFullPath());
-            return new InputStreamResource(new FileInputStream(file));
-        }
-        throw new NotFoundException(BusinessExceptionEnum.IMAGE_BY_ID_NOT_FOUND, id);
-    }
+//    @Override
+//    public InputStreamResource downloadImage(Long id) throws Exception {
+//        Optional<Image> found = imageRepository.findById(id);
+//        if (found.isPresent()) {
+//            Image image = found.get();
+//            File file = new File(image.getFullPath());
+//            return new InputStreamResource(new FileInputStream(file));
+//        }
+//        throw new NotFoundException(BusinessExceptionEnum.IMAGE_BY_ID_NOT_FOUND, id);
+//    }
 
     private Image upload(MultipartFile file) throws Exception {
         File myFile = new File(fileUploadDirectory + file.getOriginalFilename());
