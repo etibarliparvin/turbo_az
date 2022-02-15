@@ -22,7 +22,7 @@ public class OwnerMapper {
         owner.setSurname(request.getSurname());
         owner.setFin(request.getFin());
         owner.setBirthdate(request.getBirthdate());
-        owner.setAddress(addressMapper.toEntity(request.getAddress()));
+        owner.setAddress(addressMapper.toEntity(request.getAddress(), owner));
         owner.setPhones(request.getPhones().stream().map(phoneMapper::toEntity).collect(Collectors.toList()));
         owner.setCars(request.getCars().stream().map(carMapper::toEntity).collect(Collectors.toList()));
         return owner;
